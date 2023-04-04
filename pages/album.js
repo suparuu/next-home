@@ -39,15 +39,17 @@ const Album = () => {
           tracks.map((track, i) => {
             return (
               <div className={album.tracks} onClick={() => tracksClick(track)}>
-                <span>
-                  {i + 1}
-                  {track.name}
+                <div className={album.tracksflex}>
+                <span className={album.textcut}>
+                  {i + 1}  {track.name}
                 </span>
                 <span>
                   {track.artists.map((obj, i) => {
-                    return obj.name
+                    return obj.name; 
                   })}
                 </span>
+                </div>
+                <span>+</span>
               </div>
             );
           })}

@@ -15,6 +15,7 @@ export default function search() {
   const [artist, setArtist] = useState(false); //아티스트 api
   const [searchInput, setSearchInput] = useState(false); //검색 state
   const [showContent, setShowContent] = useState(false); //검색창 이벤트 state
+  const [showSection, setShowSection] = useState(false);//섹션 이벤트 state
 
   useEffect(() => {
     let authParameters = {
@@ -98,7 +99,11 @@ export default function search() {
 
   function handleClick() {
     setShowContent(true);
-  } //클릭했을때 컨텐츠 보이는 함수
+  } //클릭했을때 검색창 보이는 함수
+
+  function sectionUp(){
+    setShowSection(true)
+  }
 
   return (
     <>
@@ -114,6 +119,7 @@ export default function search() {
                 if (e.key == "Enter") {
                   searchWhat();
                   handleClick();
+                  sectionUp();
                 }
               }}
               onChange={(e) => setSearchInput(e.target.value)}
@@ -131,11 +137,10 @@ export default function search() {
 
         </section>
 
-        {/* <section className={`main.sectionAni ${showContent ? 'show' : ''}`}> */}
         {albums && (
           <section className={main.sectionAlbum}>
             {artist && (
-              <Container /* className={main.artist} */>
+              <Container >
                 <div className={main.artistbox}>
                   <img src={artist.images[0].url} className={main.artistimg} />
                   <p className={main.artistname}>{artist.name}</p>

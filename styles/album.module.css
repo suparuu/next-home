@@ -19,10 +19,22 @@
 .tracks {
   display: flex;
   height: 10%;
-  justify-content: left;
-  flex-direction: column;
   width: 90%;
   margin-bottom: 0.3125rem;
+  border: 1px solid;
+  align-items: center;
+  
+}
+.tracksflex{
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+}
+
+.textcut{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 /* audio::-webkit-media-controls-panel {
