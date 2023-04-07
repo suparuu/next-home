@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import main from "@/styles/main.module.css";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function search() {
   //안녕하세요 경우씨~~~~~ ㅎㅎㅎㅎㅎㅎㅎ
@@ -138,7 +139,10 @@ export default function search() {
         </section>
 
         {albums && (
-          <section className={main.sectionAlbum}>
+          <motion.section className={main.sectionAlbum}
+          initial={{ y: 500 }}
+          animate={{ y :0 }}
+          transition={{ duration: 0.5}}>
             {artist && (
               <Container >
                 <div className={main.artistbox}>
@@ -167,7 +171,7 @@ export default function search() {
                 );
               })}
             </div>
-          </section>
+          </motion.section>
         )}
       </main>
     </>
